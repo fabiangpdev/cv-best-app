@@ -233,7 +233,7 @@ model Template {
 | PostgreSQL (Docker) | $0 |
 | Redis (Docker) | $0 |
 | Docker (local) | $0 |
-| OpenAI API | ~$10-30/mes |
+| OpenAI API | ~$0 |
 | **Total** | **$10-30/mes** |
 
 ## 🚀 Quick Start
