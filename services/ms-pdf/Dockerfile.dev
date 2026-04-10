@@ -6,7 +6,7 @@ RUN apk add --no-cache chromium openssl
 
 COPY package*.json ./
 
-RUN npm install
+RUN corepack enable && pnpm install
 
 COPY . .
 
@@ -14,4 +14,4 @@ EXPOSE 3004
 
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
