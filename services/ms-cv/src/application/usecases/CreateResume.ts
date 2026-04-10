@@ -1,4 +1,4 @@
-import { Resume, CreateResumeDTO } from '../../../../shared/types/resume';
+import { Resume, CreateResumeDTO } from '@project/shared/types/resume';
 import { IResumeRepository } from '../../domain/interfaces/IResumeRepository';
 
 export class CreateResumeUseCase {

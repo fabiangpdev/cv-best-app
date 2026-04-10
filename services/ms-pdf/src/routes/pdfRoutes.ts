@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { PDFGeneratorService } from '../generator/PDFGeneratorService';
-import { DEFAULT_TEMPLATES, PDFGenerateRequest } from '../../../shared/types/pdf';
+import { DEFAULT_TEMPLATES, PDFGenerateRequest } from '@project/shared/types/pdf';
 
 const router = Router();
 const pdfGenerator = new PDFGeneratorService();

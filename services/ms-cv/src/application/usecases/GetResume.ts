@@ -1,4 +1,4 @@
-import { Resume, ResumeListItem } from '../../../../shared/types/resume';
+import { Resume, ResumeListItem } from '@project/shared/types/resume';
 import { IResumeRepository } from '../../domain/interfaces/IResumeRepository';
 
 export class GetResumeUseCase {

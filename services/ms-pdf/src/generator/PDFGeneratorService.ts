@@ -2,7 +2,7 @@ import puppeteer, { Browser } from 'puppeteer';
 import Handlebars from 'handlebars';
 import { TemplateData } from '../templates/cvTemplates';
 import { CV_TEMPLATES } from '../templates/cvTemplates';
-import { PDFGenerateRequest, PDFGenerateResponse } from '../../../shared/types/pdf';
+import { PDFGenerateRequest, PDFGenerateResponse } from '@project/shared/types/pdf';
 
 export class PDFGeneratorService {
   private browser: Browser | null = null;

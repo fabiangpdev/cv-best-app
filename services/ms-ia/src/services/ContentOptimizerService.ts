@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import {
   AITextOptimizationRequest,
   AITextOptimizationResponse,
-} from '../../../shared/types/ai';
+} from '@project/shared/types/ai';
 import { OPTIMIZE_CONTENT_PROMPT } from '../prompts';
 
 export class ContentOptimizerService {

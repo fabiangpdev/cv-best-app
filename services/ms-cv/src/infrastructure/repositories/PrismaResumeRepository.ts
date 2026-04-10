@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { Resume, CreateResumeDTO, UpdateResumeDTO, ResumeListItem } from '../../../../shared/types/resume';
+import { Resume, CreateResumeDTO, UpdateResumeDTO, ResumeListItem } from '@project/shared/types/resume';
 import { IResumeRepository } from '../../domain/interfaces/IResumeRepository';
 
 export class PrismaResumeRepository implements IResumeRepository {

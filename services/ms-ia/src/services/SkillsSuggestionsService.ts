@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import {
   AISkillsSuggestionRequest,
   AISkillsSuggestionResponse,
-} from '../../../shared/types/ai';
+} from '@project/shared/types/ai';
 import { SUGGEST_SKILLS_PROMPT } from '../prompts';
 
 export class SkillsSuggestionsService {

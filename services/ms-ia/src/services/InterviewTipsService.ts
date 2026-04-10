@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import {
   AIInterviewTipsRequest,
   AIInterviewTipsResponse,
-} from '../../../shared/types/ai';
+} from '@project/shared/types/ai';
 
 export class InterviewTipsService {
   private openai: OpenAI;

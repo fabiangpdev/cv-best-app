@@ -16,7 +16,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "shared/*": ["../shared/*"]
+      "@project/shared/*": ["../shared/*"]
     }
   },
   "include": ["src/**/*"],

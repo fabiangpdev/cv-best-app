@@ -1,4 +1,4 @@
-import { Resume, CreateResumeDTO, UpdateResumeDTO, ResumeListItem } from '../../../../shared/types/resume';
+import { Resume, CreateResumeDTO, UpdateResumeDTO, ResumeListItem } from '@project/shared/types/resume';
 
 export interface IResumeRepository {
   create(data: CreateResumeDTO): Promise<Resume>;

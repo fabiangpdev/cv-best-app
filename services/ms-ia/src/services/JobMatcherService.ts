@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import {
   AIJobMatchRequest,
   AIJobMatchResponse,
-} from '../../../shared/types/ai';
+} from '@project/shared/types/ai';
 
 export class JobMatcherService {
   private openai: OpenAI;
