@@ -1,0 +1,139 @@
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CV Builder - Crea tu Hoja de Vida con IA">
+  <div class="hero">
+    <div class="container">
+      <h1>Crea tu Hoja de Vida con IA</h1>
+      <p>Optimiza tu currículum, destaca habilidades y prepárate para entrevistas con ayuda de inteligencia artificial</p>
+      <div class="cta-buttons">
+        <a href="/editor" class="btn btn-primary">Crear mi CV</a>
+        <a href="/templates" class="btn btn-secondary">Ver plantillas</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="features">
+    <div class="container">
+      <h2>¿Qué puedes hacer?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✍️</div>
+          <h3>Editor Profesional</h3>
+          <p>Completa tu información de forma guiada con plantillas profesionales</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Optimización con IA</h3>
+          <p>Mejora tu contenido con sugerencias inteligentes</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3>Match Laboral</h3>
+          <p>Compara tu CV con ofertas de empleo y mejora tus posibilidades</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Entrevistas</h3>
+          <p>Recibe consejos y preguntas típicas para tu próximo entrevista</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: #2563eb;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #1d4ed8;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #1e293b;
+  }
+
+  .btn-secondary:hover {
+    background: #f1f5f9;
+  }
+
+  .features {
+    padding: 80px 0;
+  }
+
+  .features h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .feature-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .feature-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+</style>

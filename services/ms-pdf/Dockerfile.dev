@@ -1,0 +1,17 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache chromium openssl
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3004
+
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+
+CMD ["npm", "run", "dev"]

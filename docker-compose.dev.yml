@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: cvbuilder-postgres
+    environment:
+      POSTGRES_USER: cvbuilder
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: cvbuilder
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cvbuilder"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: cvbuilder-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  ms-cv:
+    build:
+      context: ./services/ms-cv
+      dockerfile: Dockerfile.dev
+    container_name: cvbuilder-ms-cv
+    ports:
+      - "3002:3002"
+    environment:
+      DATABASE_URL: postgresql://cvbuilder:devpass@postgres:5432/cvbuilder
+      NODE_ENV: development
+      PORT: 3002
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./services/ms-cv:/app
+      - /app/node_modules
+
+  ms-ia:
+    build:
+      context: ./services/ms-ia
+      dockerfile: Dockerfile.dev
+    container_name: cvbuilder-ms-ia
+    ports:
+      - "3003:3003"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      REDIS_URL: redis://redis:6379
+      NODE_ENV: development
+      PORT: 3003
+    depends_on:
+      - redis
+
+  ms-pdf:
+    build:
+      context: ./services/ms-pdf
+      dockerfile: Dockerfile.dev
+    container_name: cvbuilder-ms-pdf
+    ports:
+      - "3004:3004"
+    environment:
+      NODE_ENV: development
+      PORT: 3004
+
+  gateway:
+    build:
+      context: ./services/gateway
+      dockerfile: Dockerfile.dev
+    container_name: cvbuilder-gateway
+    ports:
+      - "3001:3001"
+    environment:
+      MS_CV_URL: http://ms-cv:3002
+      MS_IA_URL: http://ms-ia:3003
+      MS_PDF_URL: http://ms-pdf:3004
+      NODE_ENV: development
+      PORT: 3001
+    depends_on:
+      - ms-cv
+      - ms-ia
+      - ms-pdf
+
+  astro:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: cvbuilder-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      API_BASE_URL: http://gateway:3001
+      PUBLIC_API_BASE: http://localhost:3001
+
+volumes:
+  pgdata:
+  redisdata:
