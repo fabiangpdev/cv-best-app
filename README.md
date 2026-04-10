@@ -234,7 +234,7 @@ model Template {
 | Redis (Docker) | $0 |
 | Docker (local) | $0 |
 | OpenAI API | ~$0 |
-| **Total** | **$10-30/mes** |
+| **Total** | **$0/mes** |
 
 ## 🚀 Quick Start
 
